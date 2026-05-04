@@ -1,18 +1,81 @@
-# React + Vite
+# 🚀 Task Manager - Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive, and high-performance frontend for the Full-Stack MERN Task Management application. Built with **React 19**, **Vite**, and **Tailwind CSS 4**.
 
-Currently, two official plugins are available:
+## ✨ Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- 🔐 **Authentication**: Secure Login & Registration system.
+- 📊 **Dashboard**: Interactive user dashboard to manage tasks.
+- 🛡️ **Admin Panel**: Role-based access for administration tasks.
+- 🌓 **Dark Mode**: Seamless theme switching using `next-themes`.
+- 📱 **Responsive Design**: Fully optimized for mobile, tablet, and desktop.
+- ⚡ **Performance**: Built with Vite for ultra-fast development and optimized production builds.
+- 🔔 **Toast Notifications**: Interactive feedback using `sonner`.
 
-## React Compiler
+## 🛠️ Tech Stack
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+- **Framework**: [React 19](https://react.dev/)
+- **Build Tool**: [Vite 8](https://vitejs.dev/)
+- **Styling**: [Tailwind CSS 4](https://tailwindcss.com/)
+- **State Management**: [Zustand](https://github.com/pmndrs/zustand)
+- **Data Fetching**: [TanStack Query v5](https://tanstack.com/query/latest)
+- **Routing**: [React Router 7](https://reactrouter.com/)
+- **UI Components**: [Shadcn/ui](https://ui.shadcn.com/) & [Radix UI](https://www.radix-ui.com/)
+- **Icons**: [Lucide React](https://lucide.dev/)
+- **HTTP Client**: [Axios](https://axios-http.com/)
 
-Note: This will impact Vite dev & build performances.
+## 🚀 Getting Started
 
-## Expanding the ESLint configuration
+### Prerequisites
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Node.js (Latest LTS recommended)
+- npm or yarn
+
+### Installation
+
+1. Navigate to the frontend directory:
+   ```bash
+   cd frontend
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Configure Environment Variables:
+   The application automatically switches between local and production APIs. If you need to customize it, check `src/lib/api/apiClient.js`.
+
+4. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+### Building for Production
+
+To create an optimized production build:
+```bash
+npm run build
+```
+
+## 📂 Project Structure
+
+```text
+src/
+├── components/     # Reusable UI components (Shadcn/ui)
+├── pages/          # Application pages (Auth, Dashboard, Admin)
+├── lib/            # External libraries config (Axios, API Client)
+├── store/          # State management (Zustand)
+├── hooks/          # Custom React hooks
+├── assets/         # Static assets (images, icons)
+└── utils/          # Helper functions
+```
+
+## 🌐 API Configuration
+
+The frontend is configured to communicate with the backend based on the environment:
+- **Development**: `http://localhost:3000/api`
+- **Production**: `https://full-stack-mern-q50n.onrender.com/api`
+
+---
+Built with ❤️ by [Karim Sabir](https://github.com/karimsaabir9)
