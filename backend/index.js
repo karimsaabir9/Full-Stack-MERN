@@ -84,6 +84,11 @@ mongoose
   )
   .catch((err) => console.error("❌ Connection error:", err));
 
-app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
-});
+// Export the app for Vercel
+export default app;
+
+if (process.env.NODE_ENV !== "production") {
+  app.listen(PORT, () => {
+    console.log(`Server running on http://localhost:${PORT}`);
+  });
+}
