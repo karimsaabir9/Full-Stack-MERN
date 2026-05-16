@@ -28,7 +28,8 @@ app.use(helmet());
 app.use(express.json());
 app.use(
   cors({
-    origin: ["http://localhost:5173"],
+    origin: true,
+    credentials: true,
   }),
 );
 if (process.env.NODE_ENV === "development") {
@@ -64,22 +65,24 @@ app.use(notFound);
 // errore handler marwalbo last ayaa ladhigaa
 app.use(errorHandler);
 
-//connect to mongodb
-const dbURI =
-  process.env.NODE_ENV === "development"
-    ? process.env.MONGO_URI_DEV || process.env.MONGO_URI
-    : process.env.MONGO_URI_PRO ||
-      process.env.MONGO_URI ||
-      process.env.MONGO_URI_DEV;
+// Connect to MongoDB
+const connectDB = async () => {
+  try {
+    const dbURI = process.env.MONGO_URI_PRO || process.env.MONGO_URI || process.env.MONGO_URI_DEV;
+    
+    if (!dbURI) {
+      console.error("❌ MONGO_URI is missing!");
+      return;
+    }
 
-mongoose
-  .connect(dbURI)
-  .then(() =>
-    console.log(
-      `✅ MongoDB connected successfully to ${process.env.NODE_ENV === "development" ? "Local" : "Cloud"} DB`,
-    ),
-  )
-  .catch((err) => console.error("❌ Connection error:", err));
+    await mongoose.connect(dbURI);
+    console.log(`✅ MongoDB connected successfully`);
+  } catch (err) {
+    console.error("❌ Connection error:", err.message);
+  }
+};
+
+connectDB();
 
 // Export the app for Vercel
 export default app;
